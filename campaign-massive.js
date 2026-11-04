@@ -5,7 +5,7 @@
     { label: "Respuesta", count: 75, cumulative: "10.20%", next: "93.33%" },
     { label: "Lead caliente", count: 70, cumulative: "9.52%", next: "72.86%" },
     { label: "Pago", count: 51, cumulative: "6.94%", next: "96.08%" },
-    { label: "Ganado", count: 49, cumulative: "6.67%", next: "S/ 76,760" },
+    { label: "Ganado", count: 51, cumulative: "6.94%", next: "S/ 78,320" },
   ];
   const channelRows = [
     { channel: "WhatsApp", contacts: 14, value: 17893, open: 0, openValue: 0, won: 14, wonValue: 17893 },
