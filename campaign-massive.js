@@ -8,9 +8,8 @@
     { label: "Ganado", count: 51, cumulative: "6.94%", next: "S/ 78,320" },
   ];
   const channelRows = [
-    { channel: "WhatsApp", contacts: 14, value: 17893, open: 0, openValue: 0, won: 14, wonValue: 17893 },
-    { channel: "CrossHero", contacts: 18, value: 13220, open: 10, openValue: 0, won: 8, wonValue: 13220 },
-    { channel: "CrossHero", impact: "D3 · segundo impacto", contacts: 2, value: 3840, open: 0, openValue: 0, won: 2, wonValue: 3840 },
+    { channel: "WhatsApp", note: "Campaña masiva sin sufijo", contacts: 14, value: 17893, open: 0, openValue: 0, won: 14, wonValue: 17893 },
+    { channel: "CrossHero", note: "Incluye 2 registros D3", contacts: 20, value: 17060, open: 10, openValue: 0, won: 10, wonValue: 17060 },
     { channel: "Mailing", contacts: 31, value: 20310, open: 18, openValue: 0, won: 13, wonValue: 20310 },
   ];
   const touchRows = [
@@ -30,8 +29,17 @@
       <span class="campaignRate">${row.cumulative} acumulado</span>
       <span class="campaignRate">${row.next}${row.label === "Ganado" ? " valor ganado" : " al siguiente paso"}</span>
     </div>`).join("");
+  const channelTotals = channelRows.reduce((total, row) => ({
+    contacts: total.contacts + row.contacts,
+    value: total.value + row.value,
+    open: total.open + row.open,
+    openValue: total.openValue + row.openValue,
+    won: total.won + row.won,
+    wonValue: total.wonValue + row.wonValue,
+  }), { contacts: 0, value: 0, open: 0, openValue: 0, won: 0, wonValue: 0 });
   document.getElementById("massCampaignChannels").innerHTML = channelRows.map((row) => `
-    <tr><td><strong>${row.channel}</strong>${row.impact ? `<small>${row.impact}</small>` : ""}</td><td>${formatNumber(row.contacts)}</td><td>${formatMoney(row.value)}</td><td>${formatNumber(row.open)}<small>${formatMoney(row.openValue)}</small></td><td>${formatNumber(row.won)}<small>${formatMoney(row.wonValue)}</small></td></tr>`).join("");
+    <tr><td><strong>${row.channel}</strong>${row.note ? `<small>${row.note}</small>` : ""}</td><td>${formatNumber(row.contacts)}</td><td>${formatMoney(row.value)}</td><td>${(row.value / channelTotals.value * 100).toFixed(1)}%</td><td>${formatNumber(row.open)}<small>${formatMoney(row.openValue)}</small></td><td>${formatNumber(row.won)}<small>${formatMoney(row.wonValue)}</small></td></tr>`).join("");
+  document.getElementById("massCampaignChannelsTotal").innerHTML = `<tr><td><strong>Total del corte</strong></td><td>${formatNumber(channelTotals.contacts)}</td><td>${formatMoney(channelTotals.value)}</td><td>100%</td><td>${formatNumber(channelTotals.open)}<small>${formatMoney(channelTotals.openValue)}</small></td><td>${formatNumber(channelTotals.won)}<small>${formatMoney(channelTotals.wonValue)}</small></td></tr>`;
   document.getElementById("massCampaignTouches").innerHTML = touchRows.map((row) => `
     <tr><td><strong>${row.channel}</strong></td><td><span class="impactTag">${row.impact}</span></td><td>${formatNumber(row.contacts)}</td><td>${formatMoney(row.value)}</td><td>${formatNumber(row.open)}<small>${formatMoney(row.openValue)}</small></td><td>${formatNumber(row.won)}<small>${formatMoney(row.wonValue)}</small></td></tr>`).join("");
 })();
