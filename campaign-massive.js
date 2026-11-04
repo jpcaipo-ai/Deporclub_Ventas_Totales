@@ -8,9 +8,9 @@
     { label: "Ganado", count: 51, cumulative: "6.94%", next: "S/ 79,880", color: "#22cde1" },
   ];
   const channelRows = [
-    { channel: "WhatsApp", note: "Campaña masiva sin sufijo", won: 14, value: 17893 },
-    { channel: "CrossHero", note: "Incluye 2 D3", won: 10, value: 17060 },
-    { channel: "Mailing", won: 13, value: 20310 },
+    { channel: "WhatsApp", note: "12 genéricos + 19 inicial + 6 D3 + 1 uD", won: 38, value: 56008 },
+    { channel: "CrossHero", note: "8 base + 2 D3", won: 10, value: 17060 },
+    { channel: "Mailing", note: "13 base + 2 D3", won: 15, value: 22970 },
   ];
   const touchRows = [
     { channel: "WhatsApp", impact: "Inicial / secuencia", won: 19, wonValue: 29960 },
