@@ -1,22 +1,23 @@
 (() => {
   const pipeline = [
-    { label: "Comunicacion inicial", count: 735, cumulative: "100.00%", next: "18.50%", color: "#75c2f5" },
-    { label: "Inicia secuencia", count: 136, cumulative: "18.50%", next: "55.15%", color: "#21c3df" },
-    { label: "Respuesta", count: 75, cumulative: "10.20%", next: "93.33%", color: "#818cf8" },
-    { label: "Lead caliente", count: 70, cumulative: "9.52%", next: "72.86%", color: "#a78bfa" },
-    { label: "Pago", count: 51, cumulative: "6.94%", next: "100.00%", color: "#4f83fa" },
-    { label: "Ganado", count: 51, cumulative: "6.94%", next: "S/ 79,880", color: "#22cde1" },
+    { label: "Comunicacion inicial", count: 738, cumulative: "100.00%", next: "18.83%", color: "#75c2f5" },
+    { label: "Inicia secuencia", count: 139, cumulative: "18.83%", next: "57.55%", color: "#21c3df" },
+    { label: "Respuesta", count: 80, cumulative: "10.84%", next: "93.75%", color: "#818cf8" },
+    { label: "Lead caliente", count: 75, cumulative: "10.16%", next: "76.00%", color: "#a78bfa" },
+    { label: "Pago", count: 57, cumulative: "7.72%", next: "100.00%", color: "#4f83fa" },
+    { label: "Ganado", count: 57, cumulative: "7.72%", next: "S/ 88,768", color: "#22cde1" },
   ];
   const channelRows = [
-    { channel: "WhatsApp", note: "12 genéricos + 19 inicial + 6 D3 + 1 uD", won: 38, value: 56008 },
-    { channel: "CrossHero", note: "8 base + 2 D3", won: 10, value: 17060 },
-    { channel: "Mailing", note: "13 base + 2 D3", won: 15, value: 22970 },
+    { channel: "WhatsApp", note: "24 inicial + 6 D3 + 1 uD", won: 31, value: 47578 },
+    { channel: "CrossHero", note: "9 base + 3 D3", won: 12, value: 19780 },
+    { channel: "Mailing", note: "12 base + 1 D3", won: 13, value: 19850 },
   ];
   const touchRows = [
-    { channel: "WhatsApp", impact: "Inicial / secuencia", won: 19, wonValue: 29960 },
+    { channel: "WhatsApp", impact: "Inicial / secuencia", won: 24, wonValue: 36928 },
     { channel: "WhatsApp", impact: "D3 · segundo impacto", won: 6, wonValue: 9210 },
     { channel: "WhatsApp", impact: "uD · ultimo dia", won: 1, wonValue: 1440 },
-    { channel: "Mailing", impact: "D3 · segundo impacto", won: 2, wonValue: 2660 },
+    { channel: "CrossHero", impact: "D3 · segundo impacto", won: 3, wonValue: 4940 },
+    { channel: "Mailing", impact: "D3 · segundo impacto", won: 1, wonValue: 1100 },
   ];
   const formatNumber = (value) => new Intl.NumberFormat("es-PE").format(value);
   const formatMoney = (value) => `S/ ${new Intl.NumberFormat("es-PE", { maximumFractionDigits: 0 }).format(value)}`;
